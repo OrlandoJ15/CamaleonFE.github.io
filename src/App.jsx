@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar';
 const Usuario =lazy(()=>import('./Pages/Usuario'));
 const Login =lazy(()=>import('./Pages/Login'));
 const Home =lazy(()=>import('./Pages/Home'));
+const Cliente =lazy(()=>import('./Pages/Cliente'));
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' exact element={<Login/>} />
           <Route path='/Home' exact element={<Home/>} />
           <Route path='/Usuario' exact element={<Usuario/>} />
+          <Route path='/Cliente' exact element={<Cliente/>} />
         </Routes>
       </BrowserRouter>
    </Suspense>

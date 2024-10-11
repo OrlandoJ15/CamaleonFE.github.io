@@ -19,5 +19,11 @@ export const SidebarData = [
     path: '/Usuario',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Cliente',
+    path: '/Cliente',
+    icon: <FaIcons.FaCartPlus />,
+    cName: 'nav-text'
   }
 ];
