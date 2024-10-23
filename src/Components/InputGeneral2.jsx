@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Input, Label, GrupoInput, LeyendaError, IconoValidacion } from './Formularios';
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const InputGeneral = ({ estado, cambiarEstado, tipo, label, placeholder, name, leyendaError, expresionRegular, funcion, onBlur }) => {
 
+const InputGeneral2 = ({ xestado, xcambiarEstado, tipo, label, placeholder, name, leyendaError, expresionRegular, funcion, onBlur }) => {
+	console.log("CONST  ");
+	const [estado, cambiarEstado] = useState({ campo: xestado , valido: null });
+	
+
+	const regex = new RegExp(expresionRegular);
+    
 	const onChange = (e) => {
+		console.log("OnChange  ");
 		cambiarEstado({ ...estado, campo: e.target.value });
 	};
 
-	console.log("Estado  ", estado);
-
-
 	const validacion = () => {
+		console.log("Validacion  ");
 		if (expresionRegular) {
-			if (expresionRegular.test(estado.campo)) {
+			if (regex.test(estado.campo)) {
 				cambiarEstado({ ...estado, valido: 'true' });
 			} else {
 				cambiarEstado({ ...estado, valido: 'false' });
@@ -24,7 +29,7 @@ const InputGeneral = ({ estado, cambiarEstado, tipo, label, placeholder, name, l
 			funcion();
 		}
 	};
-
+	
 	const validacionOnBlur = () => {
 		if (onBlur) {
 			onBlur();
@@ -38,6 +43,10 @@ const InputGeneral = ({ estado, cambiarEstado, tipo, label, placeholder, name, l
 	const EstiloInput = {
 		height: '25px'
 	};
+
+	useEffect(() => {
+		validacion();
+	  }, [!xestado]);
 
 	return (
 		<div>
@@ -64,4 +73,4 @@ const InputGeneral = ({ estado, cambiarEstado, tipo, label, placeholder, name, l
 	);
 };
 
-export default InputGeneral;
+export default InputGeneral2;

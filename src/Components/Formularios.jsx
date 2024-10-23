@@ -35,16 +35,17 @@ const Columna = styled.ul`
 
 const Formulario = styled.form`
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px;
+	
 
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr;
-  }
+	@media (max-width: 800px){
+		grid-template-columns: 1fr 1fr;
+	}
 
-  @media (max-width: 500px) {
-    grid-template-columns: 1fr;
-  }
+	@media (max-width: 500px){
+		grid-template-columns: 1fr;
+	}
 `;
 
 const Formulario2 = styled.form`
